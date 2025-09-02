@@ -1,0 +1,261 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #0b0f14; /* near-black */
+  --foreground: #f8fafc; /* off-white */
+
+  /* Consolidate all UI surfaces to one neutral (slate-800) for a tighter, professional 5-color system */
+  --card: #1f2937; /* slate-800 unified */
+  --card-foreground: #f8fafc;
+
+  --popover: #1f2937; /* unified neutral */
+  --popover-foreground: #f8fafc;
+
+  --primary: #1d4ed8; /* cobalt blue */
+  --primary-foreground: #f8fafc;
+
+  --secondary: #1f2937; /* unified neutral */
+  --secondary-foreground: #f8fafc;
+
+  --muted: #1f2937; /* unified neutral */
+  --muted-foreground: #f8fafc;
+
+  --accent: #10b981; /* emerald */
+  --accent-foreground: #0b0f14;
+
+  /* Keep destructive mapped to accent to remain within 5 colors total */
+  --destructive: #10b981;
+  --destructive-foreground: #0b0f14;
+
+  --border: #1f2937; /* unified neutral */
+  --input: #1f2937;
+  --ring: #1d4ed8;
+
+  /* Align chart tokens to the same 5-color system */
+  --chart-1: #1d4ed8; /* primary */
+  --chart-2: #1f2937; /* neutral (ui surfaces) */
+  --chart-3: #10b981; /* accent */
+  --chart-4: #f8fafc; /* off-white */
+  --chart-5: #0b0f14; /* near-black */
+
+  --radius: 0.5rem;
+
+  --sidebar: #0b0f14;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #1d4ed8;
+  --sidebar-primary-foreground: #f8fafc;
+  --sidebar-accent: #10b981;
+  --sidebar-accent-foreground: #0b0f14;
+  --sidebar-border: #1f2937;
+  --sidebar-ring: #1d4ed8;
+}
+
+.dark {
+  --background: #0b0f14;
+  --foreground: #f8fafc;
+
+  /* Mirror unified neutral in dark to avoid extra gray variants */
+  --card: #1f2937;
+  --card-foreground: #f8fafc;
+
+  --popover: #1f2937;
+  --popover-foreground: #f8fafc;
+
+  --primary: #1d4ed8;
+  --primary-foreground: #f8fafc;
+
+  --secondary: #1f2937;
+  --secondary-foreground: #f8fafc;
+
+  --muted: #1f2937;
+  --muted-foreground: #f8fafc;
+
+  --accent: #10b981;
+  --accent-foreground: #0b0f14;
+
+  --destructive: #10b981; /* ≤5 total colors */
+  --destructive-foreground: #0b0f14;
+
+  --border: #1f2937;
+  --input: #1f2937;
+  --ring: #1d4ed8;
+
+  /* Keep chart tokens aligned */
+  --chart-1: #1d4ed8;
+  --chart-2: #1f2937;
+  --chart-3: #10b981;
+  --chart-4: #f8fafc;
+  --chart-5: #0b0f14;
+
+  --sidebar: #0b0f14;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #1d4ed8;
+  --sidebar-primary-foreground: #f8fafc;
+  --sidebar-accent: #10b981;
+  --sidebar-accent-foreground: #0b0f14;
+  --sidebar-border: #1f2937;
+  --sidebar-ring: #1d4ed8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Glitchy page-level error pulse */
+#darkcrypt-root.glitch-error {
+  animation: glitch-shake 0.6s ease;
+}
+
+@keyframes glitch-shake {
+  0% {
+    transform: translate3d(0, 0, 0);
+    filter: hue-rotate(0deg);
+  }
+  20% {
+    transform: translate3d(-2px, 1px, 0);
+  }
+  40% {
+    transform: translate3d(2px, -1px, 0);
+  }
+  60% {
+    transform: translate3d(-1px, 2px, 0);
+  }
+  80% {
+    transform: translate3d(1px, -2px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    filter: hue-rotate(0deg);
+  }
+}
+
+/* Title scan/glitch */
+.glitch-title {
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 0 6px rgba(29, 78, 216, 0.6); /* cobalt */
+}
+.glitch-title::before,
+.glitch-title::after {
+  content: "DarkCrypt";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  clip-path: inset(0 0 50% 0);
+}
+.glitch-title::before {
+  color: rgba(16, 185, 129, 0.6); /* emerald */
+  transform: translate3d(-1px, 0, 0);
+  mix-blend-mode: screen;
+}
+.glitch-title::after {
+  color: rgba(29, 78, 216, 0.6); /* cobalt */
+  transform: translate3d(1px, 0, 0);
+  mix-blend-mode: screen;
+}
+
+/* Button subtle pulse */
+.btn-pulse {
+  will-change: transform;
+}
+.btn-pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(29, 78, 216, 0.4);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(29, 78, 216, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(29, 78, 216, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(29, 78, 216, 0);
+  }
+}
+
+/* Copy/share glitch pop */
+.glitch-pop {
+  animation: glitch-pop 0.4s ease;
+}
+@keyframes glitch-pop {
+  0% {
+    transform: translate3d(0, -6px, 0) skewX(-6deg);
+    opacity: 0;
+  }
+  50% {
+    transform: translate3d(0, 0, 0) skewX(2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) skewX(0deg);
+  }
+}
+
+/* Passphrase flicker like terminal focus */
+.pass-flicker:focus {
+  animation: pass-flicker 1.2s steps(4) 1;
+  outline: none;
+}
+@keyframes pass-flicker {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); /* emerald 0% for consistency */
+  }
+  50% {
+    box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.35); /* cobalt */
+  }
+}
