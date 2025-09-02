@@ -25,7 +25,7 @@ DarkCrypt is a privacy-first, client-side message encryption and decryption web 
 - IV: 12‑byte random value per message.
 - Ciphertext Format (JSON):
 
-\`\`\`json
+`json
 {
   "v": 1,
   "alg": "AES-GCM-PBKDF2",
@@ -33,7 +33,7 @@ DarkCrypt is a privacy-first, client-side message encryption and decryption web 
   "iv": "<base64>",
   "ct": "<base64 ciphertext + tag>"
 }
-\`\`\`
+\`
 
 - Wrong passphrase → gibberish output (no hints).
 - All cryptography happens in-browser using Web Crypto API, optionally optimized via Web Worker for KDF operations.
