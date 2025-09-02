@@ -45,27 +45,26 @@ DarkCrypt is a privacy-first, client-side message encryption and decryption web 
 ## Installation & Deployment
 
 1. Clone the repository:
-\`\`\`bash
-git clone https://github.com/ABI2006S/Darkcrypt_.git
-cd Darkcrypt_
-\`\`\`
+
+       git clone https://github.com/ABI2006S/Darkcrypt_.git
+       cd Darkcrypt_
+
 
 2. Install dependencies:
-\`\`\`bash
-npm ci
-\`\`\`
+
+       npm ci
+
 
 3. Run locally:
-\`\`\`bash
-npm run dev
-\`\`\`
+
+       npm run dev
+
 
 4. Build for production:
-\`\`\`bash
-npm run build
-npm start
-\`\`\`
 
+       npm run build
+       npm start
+    
 5. Deploy on Vercel:
 - Connect your repo to Vercel.
 - Use default Next.js build commands (`npm run build`).
