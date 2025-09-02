@@ -95,6 +95,5 @@ Support the project: ☕ Buy Me a Coffee / UPI QR.
 - One-time ephemeral link sharing.
 - Encrypted file/message support.
 - IndexedDB-based encrypted message history.
-- Additional glitchy animations & hacker easter eggs.
 
 Developed by Abin Varughese John (ABI2006S) 💻
